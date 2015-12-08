@@ -45,3 +45,15 @@ class TestesDeAdicaoEmListaSimples(TestCase):
         self.assertIsNotNone(noh_final)
         self.assertEqual('B', noh_final.valor)
         self.assertIsNone(noh_final.proximo_noh)
+
+
+class TestesDeTravessia(TestCase):
+    def testar_travessia_de_lista_vazia(self):
+        lista = ListaLigadaSimples()
+        procedimento_executado = False
+
+        def procedimento():
+            nonlocal procedimento_executado
+            procedimento_executado = True
+
+        atravessar(lista, procedimento)
