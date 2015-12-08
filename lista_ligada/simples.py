@@ -24,6 +24,13 @@ def adicionar(lista, valor):
         ultimo_noh.proximo_noh = noh
 
 
+def atravessar(lista, procedimento):
+    noh_atual = lista.inicio
+    while noh_atual is not None:
+        procedimento(noh_atual.valor)
+        noh_atual = noh_atual.proximo_noh
+
+
 class TestesDeAdicaoEmListaSimples(TestCase):
     def testar_inicializar(self):
         lista = ListaLigadaSimples()
@@ -45,13 +52,6 @@ class TestesDeAdicaoEmListaSimples(TestCase):
         self.assertIsNotNone(noh_final)
         self.assertEqual('B', noh_final.valor)
         self.assertIsNone(noh_final.proximo_noh)
-
-
-def atravessar(lista, procedimento):
-    noh_atual = lista.inicio
-    while noh_atual is not None:
-        procedimento(noh_atual.valor)
-        noh_atual = noh_atual.proximo_noh
 
 
 class TestesDeTravessia(TestCase):
