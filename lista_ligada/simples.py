@@ -47,6 +47,10 @@ class TestesDeAdicaoEmListaSimples(TestCase):
         self.assertIsNone(noh_final.proximo_noh)
 
 
+def atravessar(lista, procedimento):
+    pass
+
+
 class TestesDeTravessia(TestCase):
     def testar_travessia_de_lista_vazia(self):
         lista = ListaLigadaSimples()
