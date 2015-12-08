@@ -10,7 +10,6 @@ class Nó:
 class ListaLigadaSimples:
     def __init__(self):
         self.inicio = None  # aponta para o Nó inicial
-        self.tamanho = 0
 
 
 class TestesDeAdicaoEmListaSimples(TestCase):
