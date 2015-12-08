@@ -57,3 +57,5 @@ class TestesDeTravessia(TestCase):
             procedimento_executado = True
 
         atravessar(lista, procedimento)
+
+        self.assertFalse(procedimento_executado)
