@@ -1,7 +1,7 @@
 from unittest.case import TestCase
 
 
-class Nó:
+class Noh:
     def __init__(self):
         self.valor = None
         self.proximo_noh = None
@@ -9,13 +9,13 @@ class Nó:
 
 class ListaLigadaSimples:
     def __init__(self):
-        self.inicio = None  # aponta para o Nó inicial
+        self.inicio = None  # aponta para o Noh inicial
 
 
 def adicionar(lista, valor):
-    nó = Nó()
-    nó.valor = valor
-    lista.inicio = nó
+    noh = Noh()
+    noh.valor = valor
+    lista.inicio = noh
 
 
 class TestesDeAdicaoEmListaSimples(TestCase):
@@ -23,9 +23,19 @@ class TestesDeAdicaoEmListaSimples(TestCase):
         lista = ListaLigadaSimples()
         self.assertIsNone(lista.inicio)
 
-    def testar_adiciao_de_um_elemento(self):
+    def testar_adição_de_um_elemento(self):
         lista = ListaLigadaSimples()
         adicionar(lista, 'A')
         noh_inicial = lista.inicio
         self.assertIsNotNone(noh_inicial)
         self.assertEqual('A', noh_inicial.valor)
+
+    def testar_adição_de_dois_elementos(self):
+        lista = ListaLigadaSimples()
+        adicionar(lista, 'A')
+        noh_inicial = lista.inicio
+        adicionar(lista, 'B')
+        noh_final = noh_inicial.proximo_noh
+        self.assertIsNotNone(noh_final)
+        self.assertEqual('B', noh_final.valor)
+        self.assertIsNone(noh_final.proximo_noh)
