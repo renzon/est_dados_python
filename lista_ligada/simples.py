@@ -15,7 +15,13 @@ class ListaLigadaSimples:
 def adicionar(lista, valor):
     noh = Noh()
     noh.valor = valor
-    lista.inicio = noh
+    if lista.inicio is None:
+        lista.inicio = noh
+    else:
+        ultimo_noh = lista.inicio
+        while ultimo_noh.proximo_noh != None:
+            ultimo_noh = ultimo_noh.proximo_noh
+        ultimo_noh.proximo_noh = noh
 
 
 class TestesDeAdicaoEmListaSimples(TestCase):
