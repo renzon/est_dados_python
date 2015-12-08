@@ -48,7 +48,10 @@ class TestesDeAdicaoEmListaSimples(TestCase):
 
 
 def atravessar(lista, procedimento):
-    pass
+    noh_atual = lista.inicio
+    while noh_atual is not None:
+        procedimento(noh_atual.valor)
+        noh_atual = noh_atual.proximo_noh
 
 
 class TestesDeTravessia(TestCase):
@@ -63,3 +66,19 @@ class TestesDeTravessia(TestCase):
         atravessar(lista, procedimento)
 
         self.assertFalse(procedimento_executado)
+
+    def testar_travessia_de_lista_com_elementos(self):
+        lista = ListaLigadaSimples()
+        LETRAS = list('ABC')
+
+        for letra in LETRAS:
+            adicionar(lista, letra)
+
+        lista_de_travessia = []
+
+        def procedimento(letra):
+            lista_de_travessia.append(letra)
+
+        atravessar(lista, procedimento)
+
+        self.assertListEqual(LETRAS, lista_de_travessia)
