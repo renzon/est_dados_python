@@ -12,11 +12,16 @@ class ListaLigadaSimples:
         self.inicio = None  # aponta para o Nó inicial
 
 
+def adicionar(lista, valor):
+    nó = Nó()
+    nó.valor = valor
+    lista.inicio = nó
+
+
 class TestesDeAdicaoEmListaSimples(TestCase):
     def testar_inicializar(self):
         lista = ListaLigadaSimples()
         self.assertIsNone(lista.inicio)
-        self.assertEqual(0, lista.tamanho)
 
     def testar_adiciao_de_um_elemento(self):
         lista = ListaLigadaSimples()
